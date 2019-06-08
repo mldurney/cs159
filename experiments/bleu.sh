@@ -88,4 +88,12 @@ spm_decode --model=$MODEL --input_format=piece \
             > $PREDICTIONS_DECODED\
             2> err_decode2.txt
 
-perl multi-bleu-detok.perl $VALIDATION_DECODED < $PREDICTIONS_DECODED
+SCORES=$PREDICTIONS_DIR/bleu\_scores.txt
+if [ -f $SCORES ]; then
+  cat /dev/null > $SCORES
+else
+  touch $SCORES
+fi
+
+perl multi-bleu-detok.perl $VALIDATION_DECODED < $PREDICTIONS_DECODED >> $SCORES
+cat $SCORES

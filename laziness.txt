@@ -1,11 +1,17 @@
-usage: ./bleu_checkpoints.sh <t [Transformer] | r [RNN]> <from_language> <to_language> <config> <model> <data_dir> <checkpoint_dir> <group_name>
+BLEU.SH
 
+usage: ./bleu.sh <t [Transformer] | r [RNN]> <from_language> <to_language> <config> <model> <data_dir> <checkpoint_dir> <group_name>
 
 ./bleu.sh t fr en config/transformer_fr_to_en.yml sp_model/en-fr_en_tokenizer.model data "/mnt/d/cs159_trained-models/aws_multiUN_6hrs_K80x8/run_transformer_fr_to_en" "aws_multiUN_6hrs_K80x8" && \
 ./bleu.sh r fr en config/rnn_fr_to_en.yml sp_model/en-fr_en_tokenizer.model data "/mnt/d/cs159_trained-models/aws_multiUN_6hrs_K80x8/run_transformer_fr_to_en" "aws_multiUN_6hrs_K80x8" && \
 ./bleu.sh t zh en config/transformer_zh_to_en.yml sp_model/en-zh_en_tokenizer.model data "/mnt/d/cs159_trained-models/aws_multiUN_6hrs_K80x8/run_transformer_fr_to_en" "aws_multiUN_6hrs_K80x8" && \
 ./bleu.sh r zh en config/rnn_zh_to_en.yml sp_model/en-zh_en_tokenizer.model data "/mnt/d/cs159_trained-models/aws_multiUN_6hrs_K80x8/run_transformer_fr_to_en" "aws_multiUN_6hrs_K80x8"
 
+===============================================================================
+
+BLEU_CHECKPOINTS.SH
+
+usage: ./bleu_checkpoints.sh <t [Transformer] | r [RNN]> <from_language> <to_language> <config> <model> <data_dir> <checkpoint_dir> <group_name>
 
 ./bleu_checkpoints.sh t fr en config/transformer_fr_to_en.yml sp_model/en-fr_en_tokenizer.model data "/mnt/d/cs159_trained-models/aws_multiUN_6hrs_K80x8/run_transformer_fr_to_en" "aws_multiUN_6hrs_K80x8" && \
 ./bleu_checkpoints.sh r fr en config/rnn_fr_to_en.yml sp_model/en-fr_en_tokenizer.model data "/mnt/d/cs159_trained-models/aws_multiUN_6hrs_K80x8/run_transformer_fr_to_en"  "aws_multiUN_6hrs_K80x8" && \
@@ -19,3 +25,14 @@ usage: ./bleu_checkpoints.sh <t [Transformer] | r [RNN]> <from_language> <to_lan
 ./bleu_checkpoints.sh r fr en config/rnn_fr_to_en.yml sp_model/en-fr_en_tokenizer.model data "/mnt/d/cs159_trained-models/gcp_multiUN_12hrs_P100x1/run_transformer_fr_to_en"  "gcp_multiUN_12hrs_P100x1" && \
 ./bleu_checkpoints.sh t zh en config/transformer_zh_to_en.yml sp_model/en-zh_en_tokenizer.model data "/mnt/d/cs159_trained-models/gcp_multiUN_12hrs_P100x1/run_transformer_fr_to_en" "gcp_multiUN_12hrs_P100x1" && \
 ./bleu_checkpoints.sh r zh en config/rnn_zh_to_en.yml sp_model/en-zh_en_tokenizer.model data "/mnt/d/cs159_trained-models/gcp_multiUN_12hrs_P100x1/run_transformer_fr_to_en" "gcp_multiUN_12hrs_P100x1"
+
+===============================================================================
+
+SCORE.SH
+
+usage: ./score.sh <validation> <predictions> <opt: scores>
+
+./score.sh data/en-fr_sentences_en_val_size_3000.detok.txt predictions/gcp_multiUN_12hrs_P100x1_3000/transformer_fr_to_en/en-fr_sentences_en_predictions_size_3000.detok.txt predictions/gcp_multiUN_12hrs_P100x1_3000/transformer_fr_to_en/bleu_score.txt && \
+./score.sh data/en-zh_sentences_en_val_size_3000.detok.txt predictions/gcp_multiUN_12hrs_P100x1_3000/transformer_zh_to_en/en-zh_sentences_en_predictions_size_3000.detok.txt predictions/gcp_multiUN_12hrs_P100x1_3000/transformer_zh_to_en/bleu_score.txt && \
+./score.sh data/en-fr_sentences_en_val_size_3000.detok.txt predictions/gcp_multiUN_12hrs_P100x1_3000/rnn_fr_to_en/en-fr_sentences_en_predictions_size_3000.detok.txt predictions/gcp_multiUN_12hrs_P100x1_3000/rnn_fr_to_en/bleu_score.txt && \
+./score.sh data/en-zh_sentences_en_val_size_3000.detok.txt predictions/gcp_multiUN_12hrs_P100x1_3000/rnn_zh_to_en/en-zh_sentences_en_predictions_size_3000.detok.txt predictions/gcp_multiUN_12hrs_P100x1_3000/rnn_zh_to_en/bleu_score.txt

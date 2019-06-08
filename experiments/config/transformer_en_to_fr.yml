@@ -1,0 +1,13 @@
+model_dir: run_transformer_en_to_fr/
+
+data:
+  train_features_file: data/en-fr_sentences_en_train.txt
+  train_labels_file: data/en-fr_sentences_fr_train.txt
+  eval_features_file: data/en-fr_sentences_en_val.txt
+  eval_labels_file: data/en-fr_sentences_fr_val.txt
+  source_words_vocabulary: vocab/en-fr_en_vocab.txt
+  target_words_vocabulary: vocab/en-fr_fr_vocab.txt
+
+train:
+  save_checkpoints_secs: 1800
+  keep_checkpoint_max: 30

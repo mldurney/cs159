@@ -1,0 +1,13 @@
+model_dir: run_transformer_en_to_zh/
+
+data:
+  train_features_file: data/en-zh_sentences_en_train.txt
+  train_labels_file: data/en-zh_sentences_zh_train.txt
+  eval_features_file: data/en-zh_sentences_en_val.txt
+  eval_labels_file: data/en-zh_sentences_zh_val.txt
+  source_words_vocabulary: vocab/en-zh_en_vocab.txt
+  target_words_vocabulary: vocab/en-zh_zh_vocab.txt
+
+train:
+  save_checkpoints_secs: 1800
+  keep_checkpoint_max: 30

@@ -1,3 +1,6 @@
-un_test/*
-run_12hrs_P100_gcp/*
-pyenv/*
+experiments/run_*/*
+experiments/err*
+experiments/data/*
+experiments/sp_model/*
+experiments/vocab/*
+sentencepiece/

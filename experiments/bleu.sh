@@ -58,23 +58,23 @@ else
   touch $PREDICTIONS
 fi
 
-# Windows ONMT
-$ONMT_EXE infer \
-        --model_type $MODEL_TYPE \
-        --config $CONFIG --auto_config \
-        --features_file $INPUT \
-        --predictions_file $PREDICTIONS \
-        --checkpoint_path $CHECKPOINT_DIR \
-        2> err_onmt.txt
-
-# # Linux ONMT
-# onmt-main infer \
+# # Windows ONMT
+# $ONMT_EXE infer \
 #         --model_type $MODEL_TYPE \
 #         --config $CONFIG --auto_config \
 #         --features_file $INPUT \
 #         --predictions_file $PREDICTIONS \
 #         --checkpoint_path $CHECKPOINT_DIR \
 #         2> err_onmt.txt
+
+# Linux ONMT
+onmt-main infer \
+        --model_type $MODEL_TYPE \
+        --config $CONFIG --auto_config \
+        --features_file $INPUT \
+        --predictions_file $PREDICTIONS \
+        --checkpoint_path $CHECKPOINT_DIR \
+        2> err_onmt.txt
 
 if [ ! -f $VALIDATION_DECODED ]; then
   spm_decode --model=$MODEL --input_format=piece \

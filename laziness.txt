@@ -1,13 +1,21 @@
 usage: ./bleu_checkpoints.sh <t [Transformer] | r [RNN]> <from_language> <to_language> <config> <model> <data_dir> <checkpoint_dir> <group_name>
 
 
-./bleu.sh t fr en config/transformer_fr_to_en.yml sp_model/en-fr_en_tokenizer.model data "G:\cs159_trained-models\aws_multiUN_6hrs_K80x8\run_transformer_fr_to_en" "aws_multiUN_6hrs_K80x8" &&\
-./bleu.sh r fr en config/rnn_fr_to_en.yml sp_model/en-fr_en_tokenizer.model data "G:\cs159_trained-models\aws_multiUN_6hrs_K80x8\run_rnn_fr_to_en"  "aws_multiUN_6hrs_K80x8" && \
-./bleu.sh t zh en config/transformer_zh_to_en.yml sp_model/en-zh_en_tokenizer.model data "G:\cs159_trained-models\aws_multiUN_6hrs_K80x8\run_transformer_zh_to_en" "aws_multiUN_6hrs_K80x8" && \
-./bleu.sh r zh en config/rnn_zh_to_en.yml sp_model/en-zh_en_tokenizer.model data "G:\cs159_trained-models\aws_multiUN_6hrs_K80x8\run_rnn_zh_to_en" "aws_multiUN_6hrs_K80x8"
+./bleu.sh t fr en config/transformer_fr_to_en.yml sp_model/en-fr_en_tokenizer.model data "/mnt/d/cs159_trained-models/aws_multiUN_6hrs_K80x8/run_transformer_fr_to_en" "aws_multiUN_6hrs_K80x8" && \
+./bleu.sh r fr en config/rnn_fr_to_en.yml sp_model/en-fr_en_tokenizer.model data "/mnt/d/cs159_trained-models/aws_multiUN_6hrs_K80x8/run_transformer_fr_to_en" "aws_multiUN_6hrs_K80x8" && \
+./bleu.sh t zh en config/transformer_zh_to_en.yml sp_model/en-zh_en_tokenizer.model data "/mnt/d/cs159_trained-models/aws_multiUN_6hrs_K80x8/run_transformer_fr_to_en" "aws_multiUN_6hrs_K80x8" && \
+./bleu.sh r zh en config/rnn_zh_to_en.yml sp_model/en-zh_en_tokenizer.model data "/mnt/d/cs159_trained-models/aws_multiUN_6hrs_K80x8/run_transformer_fr_to_en" "aws_multiUN_6hrs_K80x8"
 
 
-./bleu_checkpoints.sh t fr en config/transformer_fr_to_en.yml sp_model/en-fr_en_tokenizer.model data "G:\cs159_trained-models\aws_multiUN_6hrs_K80x8\run_transformer_fr_to_en" "aws_multiUN_6hrs_K80x8" && \
-./bleu_checkpoints.sh r fr en config/rnn_fr_to_en.yml sp_model/en-fr_en_tokenizer.model data "G:\cs159_trained-models\aws_multiUN_6hrs_K80x8\run_rnn_fr_to_en"  "aws_multiUN_6hrs_K80x8" && \
-./bleu_checkpoints.sh t zh en config/transformer_zh_to_en.yml sp_model/en-zh_en_tokenizer.model data "G:\cs159_trained-models\aws_multiUN_6hrs_K80x8\run_transformer_zh_to_en" "aws_multiUN_6hrs_K80x8" && \
-./bleu_checkpoints.sh r zh en config/rnn_zh_to_en.yml sp_model/en-zh_en_tokenizer.model data "G:\cs159_trained-models\aws_multiUN_6hrs_K80x8\run_rnn_zh_to_en" "aws_multiUN_6hrs_K80x8"
+./bleu_checkpoints.sh t fr en config/transformer_fr_to_en.yml sp_model/en-fr_en_tokenizer.model data "/mnt/d/cs159_trained-models/aws_multiUN_6hrs_K80x8/run_transformer_fr_to_en" "aws_multiUN_6hrs_K80x8" && \
+./bleu_checkpoints.sh r fr en config/rnn_fr_to_en.yml sp_model/en-fr_en_tokenizer.model data "/mnt/d/cs159_trained-models/aws_multiUN_6hrs_K80x8/run_transformer_fr_to_en"  "aws_multiUN_6hrs_K80x8" && \
+./bleu_checkpoints.sh t zh en config/transformer_zh_to_en.yml sp_model/en-zh_en_tokenizer.model data "/mnt/d/cs159_trained-models/aws_multiUN_6hrs_K80x8/run_transformer_fr_to_en" "aws_multiUN_6hrs_K80x8" && \
+./bleu_checkpoints.sh r zh en config/rnn_zh_to_en.yml sp_model/en-zh_en_tokenizer.model data "/mnt/d/cs159_trained-models/aws_multiUN_6hrs_K80x8/run_transformer_fr_to_en" "aws_multiUN_6hrs_K80x8" && \
+./bleu_checkpoints.sh t fr en config/transformer_fr_to_en.yml sp_model/en-fr_en_tokenizer.model data "/mnt/d/cs159_trained-models/aws_multiUN_12hrs_K80x1/run_transformer_fr_to_en" "aws_multiUN_12hrs_K80x1" && \
+./bleu_checkpoints.sh r fr en config/rnn_fr_to_en.yml sp_model/en-fr_en_tokenizer.model data "/mnt/d/cs159_trained-models/aws_multiUN_12hrs_K80x1/run_transformer_fr_to_en"  "aws_multiUN_12hrs_K80x1" && \
+./bleu_checkpoints.sh t zh en config/transformer_zh_to_en.yml sp_model/en-zh_en_tokenizer.model data "/mnt/d/cs159_trained-models/aws_multiUN_12hrs_K80x1/run_transformer_fr_to_en" "aws_multiUN_12hrs_K80x1" && \
+./bleu_checkpoints.sh r zh en config/rnn_zh_to_en.yml sp_model/en-zh_en_tokenizer.model data "/mnt/d/cs159_trained-models/aws_multiUN_12hrs_K80x1/run_transformer_fr_to_en" "aws_multiUN_12hrs_K80x1" && \
+./bleu_checkpoints.sh t fr en config/transformer_fr_to_en.yml sp_model/en-fr_en_tokenizer.model data "/mnt/d/cs159_trained-models/gcp_multiUN_12hrs_P100x1/run_transformer_fr_to_en" "gcp_multiUN_12hrs_P100x1" && \
+./bleu_checkpoints.sh r fr en config/rnn_fr_to_en.yml sp_model/en-fr_en_tokenizer.model data "/mnt/d/cs159_trained-models/gcp_multiUN_12hrs_P100x1/run_transformer_fr_to_en"  "gcp_multiUN_12hrs_P100x1" && \
+./bleu_checkpoints.sh t zh en config/transformer_zh_to_en.yml sp_model/en-zh_en_tokenizer.model data "/mnt/d/cs159_trained-models/gcp_multiUN_12hrs_P100x1/run_transformer_fr_to_en" "gcp_multiUN_12hrs_P100x1" && \
+./bleu_checkpoints.sh r zh en config/rnn_zh_to_en.yml sp_model/en-zh_en_tokenizer.model data "/mnt/d/cs159_trained-models/gcp_multiUN_12hrs_P100x1/run_transformer_fr_to_en" "gcp_multiUN_12hrs_P100x1"

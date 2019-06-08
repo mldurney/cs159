@@ -62,7 +62,9 @@ if [ ! -f $VALIDATION_DECODED ]; then
               2> err_decode1.txt
 fi
 
-CHECKPOINT_DIR_WSL=$(wslpath -a $CHECKPOINT_DIR)
+# CHECKPOINT_DIR_WSL=$(wslpath -a $CHECKPOINT_DIR) # Windows
+CHECKPOINT_DIR_WSL=$CHECKPOINT_DIR # Linux
+
 for FILE in `ls -v1 $CHECKPOINT_DIR_WSL/*.index`; do
   CHECKPOINT=$(basename $FILE .index)
   CHECKPOINT_ID=${CHECKPOINT#"model."}
@@ -89,17 +91,27 @@ for FILE in `ls -v1 $CHECKPOINT_DIR_WSL/*.index`; do
     touch $PREDICTIONS
   fi
 
-  $ONMT_EXE infer \
-          --model_type $MODEL_TYPE \
-          --config $CONFIG --auto_config \
-          --features_file $INPUT \
-          --predictions_file $PREDICTIONS \
-          --checkpoint_path $CHECKPOINT_DIR \
-          2> err_onmt.txt
+  # # Windows ONMT
+  # $ONMT_EXE infer \
+  #         --model_type $MODEL_TYPE \
+  #         --config $CONFIG --auto_config \
+  #         --features_file $INPUT \
+  #         --predictions_file $PREDICTIONS \
+  #         --checkpoint_path $CHECKPOINT_DIR \
+  #         2> err_onmt.txt
+
+  # Linux ONMT
+  onmt-main infer \
+        --model_type $MODEL_TYPE \
+        --config $CONFIG --auto_config \
+        --features_file $INPUT \
+        --predictions_file $PREDICTIONS \
+        --checkpoint_path $CHECKPOINT_DIR \
+        2> err_onmt.txt
 
   spm_decode --model=$MODEL --input_format=piece \
             < $PREDICTIONS \
-            > $PREDICTIONS_DECODED\
+            > $PREDICTIONS_DECODED \
             2> err_decode2.txt
 
   perl multi-bleu-detok.perl $VALIDATION_DECODED < $PREDICTIONS_DECODED >> $SCORES
